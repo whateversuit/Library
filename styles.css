@@ -1,0 +1,52 @@
+body {
+  font-family: "Montserrat";
+  /* background-image: url(https://images.unsplash.com/photo-1419640303358-44f0d27f48e7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1276&q=80);
+  background-size: cover;
+  background-repeat: no-repeat; */
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Libre Baskerville", serif;
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: grey;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.bookborder {
+  padding: 15px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: left;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}
+
+/* one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
