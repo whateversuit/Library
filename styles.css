@@ -42,6 +42,33 @@ h3 {
   background-color: white;
 }
 
+.modal {
+  background-color: white;
+  width: 400px;
+  max-width: 100%;
+  padding: 30px 50px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.modal-container.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -51,6 +78,15 @@ h3 {
 
 .bookborder {
   padding: 15px;
+}
+.btn-delete {
+  border: none;
+  background: none;
+  font-size: 16px;
+}
+.btn-divdelete {
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .card {

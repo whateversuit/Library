@@ -8,6 +8,19 @@
 // add a button on each books display to change its read status - function that toggles a funktion on books read status on Book prototype
 // add local storage functionality. 
 // make user put info into a HTML form
+const btn_newBook = document.getElementById('btn_newBook')
+const modal_container = document.getElementById('modal_container')
+const submit = document.getElementById('submit')
+
+
+btn_newBook.addEventListener('click', () => {
+    modal_container.classList.add('show');
+    
+})
+
+submit.addEventListener('click', () => {
+    modal_container.classList.remove('show');
+})
 
 // array storing books
 let myLibrary = [];
