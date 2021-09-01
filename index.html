@@ -12,36 +12,50 @@
 </head>
 <body>
     <div class="heading">
-    <h1 class ="headertext"><img class="img-book" src="http://clipart-library.com/images_k/books-transparent-png/books-transparent-png-24.png" alt="">My Online Library <img class="img-book"src="https://www.nicepng.com/png/full/13-134390_28-collection-of-book-clipart-png-black-and.png" alt=""></h1>
+    <h1 class ="headertext"><img class="img-book" src="https://www.nicepng.com/png/full/13-134390_28-collection-of-book-clipart-png-black-and.png" alt="">My Online Library <img class="img-book"src="https://www.nicepng.com/png/full/13-134390_28-collection-of-book-clipart-png-black-and.png" alt=""></h1>
     
     <button class="btn-newBook" id="btn_newBook">Add Book+</button>
 </div>
-
-
-<div class="modal-container" id="modal_container">
-    <div class="modal">
-        <h2>Add New Book to Library</h2>
-        <label for="title">Title: </label>
-        <input type="text" name="title" id="title" placeholder="e.g Heart of Darkness">
-        <label for="author">Author: </label>
-        <input type="text" name="author" id="author" placeholder="Joseph Conrad">
-        <label for="pages">Pages: </label>
-        <input type="text" name="pages" id="pages" placeholder="120">
-        <p>Has Read: </p>
-        <label for="hasRead">Yes </label>
-        <input type="radio" name="hasReadYes" id="hasReadYes" placeholder="e.g Heart of Darkness">
-        <label for="hasRead">No </label>
-        <input type="radio" name="hasReadNo" id="hasReadNo">
-        <button id="submit">Submit</button>
-    </div>
-</div>
-
-
-
-
-
-
 <main>
+    <form>
+    <div class="modal-container" id="modal_container">
+        <div class="modal">
+            <h2>Add New Book to Library</h2>
+        <ul>
+            <li>
+                <label for="title">Title: </label>
+                <input type="text" name="title" id="title" placeholder="e.g Heart of Darkness">
+            </li>
+            <li>
+                <label for="author">Author: </label>
+                <input type="text" name="author" id="author" placeholder="Joseph Conrad">
+                
+            </li>
+            <li>
+                <label for="pages">Pages: </label>
+                <input type="text" name="pages" id="pages" placeholder="120">
+             
+            </li>
+            <li>
+                
+            <label for="hasRead">Finished</label>
+            <input type="radio" name="hasReadYes" id="hasReadYes" placeholder="e.g Heart of Darkness">
+            <label for="hasRead">Not Finished</label>
+            <input type="radio" name="hasReadNo" id="hasReadNo">
+            
+            </li>
+            
+            <li>
+            <button id="submit">Submit</button> 
+            </li>
+        </ul>
+        
+        </div>
+    </div>
+    </form>
+
+
+
     <div class="container">
         <div class="bookborder">
           <div class="card">

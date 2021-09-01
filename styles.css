@@ -9,6 +9,7 @@ body {
 .img-book {
   height: 60px;
   width: 60px;
+  padding-right: 15px;
 }
 .img-card {
   height: 30px;
