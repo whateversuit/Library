@@ -10,7 +10,7 @@ const submit = document.getElementById('submit')
 
 
 btn_newBook.addEventListener('click', () => {
-    modal_container.classList.add('show');  
+    modal_container.classList.add('show');  // show modal when clicking on new book.
 })
 
 submit.addEventListener('click', (e) => {
