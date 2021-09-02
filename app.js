@@ -18,8 +18,10 @@ btn_newBook.addEventListener('click', () => {
     
 })
 
-submit.addEventListener('click', () => {
-    modal_container.classList.remove('show');
+submit.addEventListener('click', (e) => {
+    e.preventDefault();     // prevent submit form from submitting
+    addBookToLibrary();     // add Book function, adding to object into the array
+    modal_container.classList.remove('show'); // removes modal from showing
 })
 
 // array storing books
@@ -34,15 +36,14 @@ function Book(title, author, pages, hasRead){
 }    
 
 
-// function that takes user input and store new book objects into the array
+// function that takes user input and store new book objects and pushes into the array
 function addBookToLibrary() {
-    const book1 = new Book('Eye of The World', 'Robert Jordan', '400', 'Read');
-    const book2 = new Book('Lord of The Rings', 'J.R.R Tolkien', '350', 'Read')
-    
-    myLibrary.push(book1);
-    myLibrary.push(book2);
+    const book = new Book(document.getElementById('title').value,
+    document.getElementById('author').value,
+    document.getElementById('pages').value,
+    document.getElementById('hasReadYes').value,
+    document.getElementById('hasReadNo').value);
 
-    console.log([myLibrary])
-    
+    myLibrary.push(book);  
 }
-addBookToLibrary();
+
