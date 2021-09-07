@@ -20,7 +20,7 @@ submit.addEventListener('click', (e) => {
     modal_container.classList.remove('show'); // removes modal from showing
     
 })
-let myLibrary = (JSON.parse(localStorage.getItem('myOnlineLibrary')))
+let myLibrary = (JSON.parse(localStorage.getItem('myLibrary')))
 
 
 // Book object constructor
@@ -42,10 +42,20 @@ function addBookToLibrary() {
     document.getElementById('pages').value,
     document.getElementById('hasReadYes').value,
     document.getElementById('hasReadNo').value);
+    
     myLibrary.push(book); // Push book to array
-    localStorage.setItem('myOnlineLibrary', JSON.stringify(myLibrary)); // storing locally in browser, converting to JSON format
+    localStorage.setItem('myLibrary', JSON.stringify(myLibrary)); // storing locally in browser, converting to JSON format
     
 }
 
+function addBookToPage(){
+    if (localStorage.getItem('myLibrary') != null){
+        const card = document.getElementById('card')
+        
+        card.innerHTML = myLibrary[3].author
+        
 
-console.table(myLibrary)
+    }
+
+}
+addBookToPage()
