@@ -7,6 +7,7 @@
 const btn_newBook = document.getElementById('btn_newBook')
 const modal_container = document.getElementById('modal_container')
 const submit = document.getElementById('submit')
+const card = document.getElementById('card')
 
 
 btn_newBook.addEventListener('click', () => {
@@ -50,9 +51,8 @@ function addBookToLibrary() {
 
 function addBookToPage(){
     if (localStorage.getItem('myLibrary') != null){
-        const card = document.getElementById('card')
         
-        card.innerHTML = myLibrary[3].author
+        console.log(card.innerHTML = myLibrary[1].title)
         
 
     }
