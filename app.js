@@ -14,16 +14,14 @@ btn_newBook.addEventListener('click', () => {
 })
 
 submit.addEventListener('click', (e) => {
+    
     e.preventDefault();     // prevent submit form from submitting
     addBookToLibrary();     // add Book function, adding to object into the array
     modal_container.classList.remove('show'); // removes modal from showing
+    
 })
+let myLibrary = (JSON.parse(localStorage.getItem('myOnlineLibrary')))
 
-// array storing books
-let myLibrary = [];
-
-// Save to local storage converting it to JSON-format and stores it in browser memory.
-localStorage.setItem('myOnlineLibrary', JSON.stringify(myLibrary));
 
 // Book object constructor
 function Book(title, author, pages, hasRead){
@@ -36,13 +34,18 @@ function Book(title, author, pages, hasRead){
 
 // function that takes user input and store new book objects and pushes into the array
 function addBookToLibrary() {
+    if (myLibrary == null) {
+        myLibrary = [];
+    }
     const book = new Book(document.getElementById('title').value,
     document.getElementById('author').value,
     document.getElementById('pages').value,
     document.getElementById('hasReadYes').value,
     document.getElementById('hasReadNo').value);
-
     myLibrary.push(book); // Push book to array
     localStorage.setItem('myOnlineLibrary', JSON.stringify(myLibrary)); // storing locally in browser, converting to JSON format
+    
 }
 
+
+console.table(myLibrary)
