@@ -51,8 +51,10 @@ function addBookToLibrary() {
 
 function addBookToPage(){
     if (localStorage.getItem('myLibrary') != null){
-        
-        console.log(card.innerHTML = myLibrary[1].title)
+        myLibrary.forEach(Book => {
+            console.table(Book)
+            
+        });
         
 
     }
