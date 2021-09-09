@@ -69,22 +69,27 @@ function addBookToPage(){
             btnDelete = document.createElement('button');
             btnDelete.classList = "btn-delete";
             divDelete.appendChild(btnDelete);
+            btnDelete.innerText = "x";
             
             header = document.createElement('h3');
             header.classList = "title";
             card.appendChild(header);
+            header.innerText = `${Book.title}`;
             
             newAuthor = document.createElement('p');
             newAuthor.classList = "author";
             card.appendChild(newAuthor);
+            newAuthor.innerText = `Author: ${Book.author}`;
             
             totalPages = document.createElement('p');
             totalPages.classList = "pages";
             card.appendChild(totalPages);
+            totalPages.innerText = `Pages: ${Book.pages}`;
 
             newHasRead = document.createElement('p');
             newHasRead.classList = "hasRead";
             card.appendChild(newHasRead);
+            newHasRead.innerText = `Finished: ${Book.hasRead}`;
             
             newImage = document.createElement('img');
             newImage.classList = "img-card";
