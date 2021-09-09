@@ -7,7 +7,7 @@
 const btn_newBook = document.getElementById('btn_newBook')
 const modal_container = document.getElementById('modal_container')
 const submit = document.getElementById('submit')
-const card = document.getElementById('card')
+//const card = document.getElementById('card')
 
 
 btn_newBook.addEventListener('click', () => {
@@ -53,6 +53,45 @@ function addBookToPage(){
     if (localStorage.getItem('myLibrary') != null){
         myLibrary.forEach(Book => {
             console.table(Book)
+            divBorder = document.createElement('div');
+            divBorder.classList = "bookborder";
+            container.appendChild(divBorder);
+            
+            card = document.createElement('div');
+            card.classList = "card";
+            card.id = "card";
+            
+            divBorder.appendChild(card);
+            divDelete = document.createElement('div');
+            divDelete.classList = "btn-divdelete";
+            card.appendChild(divDelete);
+            
+            btnDelete = document.createElement('button');
+            btnDelete.classList = "btn-delete";
+            divDelete.appendChild(btnDelete);
+            
+            header = document.createElement('h3');
+            header.classList = "title";
+            card.appendChild(header);
+            
+            newAuthor = document.createElement('p');
+            newAuthor.classList = "author";
+            card.appendChild(newAuthor);
+            
+            totalPages = document.createElement('p');
+            totalPages.classList = "pages";
+            card.appendChild(totalPages);
+
+            newHasRead = document.createElement('p');
+            newHasRead.classList = "hasRead";
+            card.appendChild(newHasRead);
+            
+            newImage = document.createElement('img');
+            newImage.classList = "img-card";
+            newImage.src = "https://www.nicepng.com/png/full/69-693155_books-open-book-clip-art-clipartix-open-book.png"
+            card.appendChild(newImage);
+            
+
             
         });
         
@@ -60,4 +99,4 @@ function addBookToPage(){
     }
 
 }
-addBookToPage()
+addBookToPage();
