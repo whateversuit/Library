@@ -1,13 +1,15 @@
-// Write function that dispalys each book on page
-// add a button on each books display to remove from library
-// associate DOM elements to the acual book objects. Maybe give attriute that corresponds to array index
-// add a button on each books display to change its read status - function that toggles a funktion on books read status on Book prototype
+// TODO:
+
+// 1. Make delete button work - remove from local storage and from display
+// 2. add a button on each books display to change its read status - function that toggles a funktion on books read status on Book prototype
+// 3. Fix styling on modal container
+// 4. Add a button on modal container to hide (instead of only submit)
+
  
 
 const btn_newBook = document.getElementById('btn_newBook')
 const modal_container = document.getElementById('modal_container')
 const submit = document.getElementById('submit')
-//const card = document.getElementById('card')
 
 
 btn_newBook.addEventListener('click', () => {
@@ -21,8 +23,9 @@ submit.addEventListener('click', (e) => {
     modal_container.classList.remove('show'); // removes modal from showing
     
 })
+// get object from localstorage, parse back to array and the run add to page function
 let myLibrary = (JSON.parse(localStorage.getItem('myLibrary')))
-
+addBookToPage();
 
 // Book object constructor
 function Book(title, author, pages, hasRead){
@@ -46,16 +49,17 @@ function addBookToLibrary() {
     
     myLibrary.push(book); // Push book to array
     localStorage.setItem('myLibrary', JSON.stringify(myLibrary)); // storing locally in browser, converting to JSON format
-    
-}
 
+    addBookToPage(); // calling add book to Page function
+}
+// This functions loops through the local storage array myLibrary and displays it in cards
 function addBookToPage(){
     if (localStorage.getItem('myLibrary') != null){
-        myLibrary.forEach(Book => {
-            console.table(Book)
-            divBorder = document.createElement('div');
-            divBorder.classList = "bookborder";
-            container.appendChild(divBorder);
+        myLibrary.forEach(Book => { // Loops through each Book object inside myLibrary
+        
+            divBorder = document.createElement('div'); // create a div
+            divBorder.classList = "bookborder"; // add class to div
+            container.appendChild(divBorder); // append div to already existing container div in HTML document.
             
             card = document.createElement('div');
             card.classList = "card";
@@ -96,12 +100,7 @@ function addBookToPage(){
             newImage.src = "https://www.nicepng.com/png/full/69-693155_books-open-book-clip-art-clipartix-open-book.png"
             card.appendChild(newImage);
             
-
-            
         });
-        
-
     }
 
 }
-addBookToPage();
