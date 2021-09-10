@@ -12,6 +12,9 @@ const modal_container = document.getElementById('modal_container')
 const submit = document.getElementById('submit')
 
 
+
+
+
 btn_newBook.addEventListener('click', () => {
     modal_container.classList.add('show');  // show modal when clicking on new book.
 })
@@ -74,7 +77,7 @@ function addBookToPage(){
             btnDelete.classList = "btn-delete";
             divDelete.appendChild(btnDelete);
             btnDelete.innerText = "x";
-            
+
             header = document.createElement('h3');
             header.classList = "title";
             card.appendChild(header);
@@ -100,7 +103,21 @@ function addBookToPage(){
             newImage.src = "https://www.nicepng.com/png/full/69-693155_books-open-book-clip-art-clipartix-open-book.png"
             card.appendChild(newImage);
             
-        });
+            card.addEventListener('click', (e) => {
+                deleteBook(e.target);
+                })
+                
+             
+        })
     }
+        
+}
 
+
+  // deleting a book from DOM
+function deleteBook(el) {
+    if(el.classList.contains('btn-delete')){
+        el.parentElement.parentElement.remove();
+
+    } 
 }
