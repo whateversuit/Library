@@ -27,7 +27,8 @@ submit.addEventListener('click', (e) => {
     
 })
 // get object from localstorage, parse back to array and the run add to page function
-let myLibrary = (JSON.parse(localStorage.getItem('myLibrary')))
+let myLibrary = (JSON.parse(localStorage.getItem('myLibrary')));
+
 addBookToPage();
 
 // Book object constructor
@@ -117,6 +118,6 @@ function addBookToPage(){
 function deleteBook(el) {
     if(el.classList.contains('btn-delete')){
         el.parentElement.parentElement.parentElement.remove();
-
+        
     } 
 }
