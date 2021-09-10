@@ -113,11 +113,10 @@ function addBookToPage(){
         
 }
 
-
   // deleting a book from DOM
 function deleteBook(el) {
     if(el.classList.contains('btn-delete')){
-        el.parentElement.parentElement.remove();
+        el.parentElement.parentElement.parentElement.remove();
 
     } 
 }

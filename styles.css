@@ -42,6 +42,9 @@ h3 {
   font-weight: bold;
   background-color: white;
 }
+.btn-newBook:hover {
+  transform: scale(1.01);
+}
 
 .modal {
   background-color: white;
@@ -85,6 +88,11 @@ h3 {
   background: none;
   font-size: 16px;
 }
+.btn-delete:hover {
+  text-shadow: 1px 0px 10px;
+  color: red;
+}
+
 .btn-divdelete {
   display: flex;
   flex-direction: row-reverse;
@@ -96,6 +104,9 @@ h3 {
   text-align: left;
   background-image: url("https://images.unsplash.com/photo-1601662528567-526cd06f6582?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=658&q=80;");
   background-color: white;
+}
+.card:hover {
+  transform: scale(1.005);
 }
 
 /* one column layout (vertical) on small screens */
