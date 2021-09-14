@@ -37,6 +37,8 @@ function Book(title, author, pages, hasRead){
     this.author = author
     this.pages = pages
     this.hasRead = hasRead
+    
+    
 }    
 
 
@@ -78,7 +80,7 @@ function addBookToPage(){
             btnDelete.classList = "btn-delete";
             divDelete.appendChild(btnDelete);
             btnDelete.innerText = "x";
-
+        
             header = document.createElement('h3');
             header.classList = "title";
             card.appendChild(header);
@@ -104,7 +106,10 @@ function addBookToPage(){
             newImage.src = "https://www.nicepng.com/png/full/69-693155_books-open-book-clip-art-clipartix-open-book.png"
             card.appendChild(newImage);
             
+            
+            
             card.addEventListener('click', (e) => {
+                
                 deleteBook(e.target);
                 })
                 
@@ -118,6 +123,12 @@ function addBookToPage(){
 function deleteBook(el) {
     if(el.classList.contains('btn-delete')){
         el.parentElement.parentElement.parentElement.remove();
-        
+        let myLibrary = (JSON.parse(localStorage.getItem('myLibrary')));
+        for (let i = 0; i < myLibrary.length; i++) {
+            if (myLibrary[i].title == Book.title) {
+                myLibrary.splice(i, 1);
+            }
+        }
+        localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
     } 
 }
