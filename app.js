@@ -38,7 +38,7 @@ function Book(title, author, pages, hasRead){
     this.pages = pages
     this.hasRead = hasRead
     
-    
+
 }    
 
 
@@ -109,7 +109,6 @@ function addBookToPage(){
             
             
             card.addEventListener('click', (e) => {
-                
                 deleteBook(e.target);
                 })
                 
@@ -123,12 +122,13 @@ function addBookToPage(){
 function deleteBook(el) {
     if(el.classList.contains('btn-delete')){
         el.parentElement.parentElement.parentElement.remove();
-        let myLibrary = (JSON.parse(localStorage.getItem('myLibrary')));
-        for (let i = 0; i < myLibrary.length; i++) {
-            if (myLibrary[i].title == Book.title) {
-                myLibrary.splice(i, 1);
-            }
-        }
-        localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+        
+        // let myLibrary = (JSON.parse(localStorage.getItem('myLibrary')));
+        //     myLibrary.forEach(el, index)
+        //     if (myLibrary[i].title == title) {
+        //         myLibrary.splice(i, 1);
+        //     }
+        // }
+        // localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
     } 
 }
