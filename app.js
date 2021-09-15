@@ -1,19 +1,12 @@
 // TODO:
-
-// 1. Make delete button work - remove from local storage and from display
-// 2. add a button on each books display to change its read status - function that toggles a funktion on books read status on Book prototype
-// 3. Fix styling on modal container
-// 4. Add a button on modal container to hide (instead of only submit)
-
- 
+// 1. add a button on each books display to change its read status - function that toggles a funktion on books read status on Book prototype
+// 2. Fix styling on modal container
+// 3. Add a button on modal container to hide (instead of only submit)
+// 4. fix books stacking when displayed from array
 
 const btn_newBook = document.getElementById('btn_newBook')
 const modal_container = document.getElementById('modal_container')
 const submit = document.getElementById('submit')
-
-
-
-
 
 btn_newBook.addEventListener('click', () => {
     modal_container.classList.add('show');  // show modal when clicking on new book.
@@ -28,7 +21,6 @@ submit.addEventListener('click', (e) => {
 })
 // get object from localstorage, parse back to array and the run add to page function
 let myLibrary = (JSON.parse(localStorage.getItem('myLibrary')));
-
 addBookToPage();
 
 // Book object constructor
@@ -41,7 +33,6 @@ function Book(title, author, pages, hasRead){
 
 }    
 
-
 // function that takes user input and store new book objects and pushes into the array
 function addBookToLibrary() {
     if (myLibrary == null) {
@@ -52,14 +43,13 @@ function addBookToLibrary() {
     document.getElementById('pages').value,
     document.getElementById('hasReadYes').value,
     document.getElementById('hasReadNo').value);
-    
     myLibrary.push(book); // Push book to array
     localStorage.setItem('myLibrary', JSON.stringify(myLibrary)); // storing locally in browser, converting to JSON format
-
     addBookToPage(); // calling add book to Page function
 }
 // This functions loops through the local storage array myLibrary and displays it in cards
 function addBookToPage(){
+    
     if (localStorage.getItem('myLibrary') != null){
         myLibrary.forEach(Book => { // Loops through each Book object inside myLibrary
         
@@ -106,10 +96,9 @@ function addBookToPage(){
             newImage.src = "https://www.nicepng.com/png/full/69-693155_books-open-book-clip-art-clipartix-open-book.png"
             card.appendChild(newImage);
             
-            
-            
             card.addEventListener('click', (e) => {
-                deleteBook(e.target);
+                deleteBookCard(e.target);
+                deleteBookStorage(`${Book.title}`);
                 })
                 
              
@@ -117,18 +106,19 @@ function addBookToPage(){
     }
         
 }
-
   // deleting a book from DOM
-function deleteBook(el) {
-    if(el.classList.contains('btn-delete')){
-        el.parentElement.parentElement.parentElement.remove();
-        
-        // let myLibrary = (JSON.parse(localStorage.getItem('myLibrary')));
-        //     myLibrary.forEach(el, index)
-        //     if (myLibrary[i].title == title) {
-        //         myLibrary.splice(i, 1);
-        //     }
-        // }
-        // localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+function deleteBookCard(book) {
+    if(book.classList.contains('btn-delete')){
+        book.parentElement.parentElement.parentElement.remove(); 
     } 
 }
+// delete book from localstorage array
+function deleteBookStorage(book){
+    myLibrary.forEach((Book, index) => {
+    if(`${Book.title}` === book) {
+        myLibrary.splice(index, 1);
+    }
+    })
+    localStorage.setItem("myLibrary", JSON.stringify(myLibrary))   
+}
+
