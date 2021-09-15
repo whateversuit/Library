@@ -32,6 +32,8 @@ function Book(title, author, pages, hasRead){
     
 
 }    
+//Book.prototype.hasRead = "yes";
+
 
 // function that takes user input and store new book objects and pushes into the array
 function addBookToLibrary() {
