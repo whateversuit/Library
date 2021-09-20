@@ -19,7 +19,7 @@ submit.addEventListener('click', (e) => {
     modal_container.classList.remove('show'); // removes modal from showing
     
 })
-// get object from localstorage, parse back to array and the run add to page function
+// get object from localstorage, parse back to array and then run add to page function
 let myLibrary = (JSON.parse(localStorage.getItem('myLibrary')));
 addBookToPage();
 
@@ -32,7 +32,7 @@ function Book(title, author, pages, hasRead){
     
 
 }    
-//Book.prototype.hasRead = "yes";
+
 
 
 // function that takes user input and store new book objects and pushes into the array
@@ -55,47 +55,45 @@ function addBookToPage(){
         myLibrary.forEach(Book => { // Loops through each Book object inside myLibrary
         
             divBorder = document.createElement('div'); // create a div
-            divBorder.classList = "bookborder"; // add class to div
-            container.appendChild(divBorder); // append div to already existing container div in HTML document.
-            
             card = document.createElement('div');
+            divDelete = document.createElement('div');
+            btnDelete = document.createElement('button');
+            header = document.createElement('h3');
+            newAuthor = document.createElement('p');
+            totalPages = document.createElement('p');
+            newHasRead = document.createElement('p');
+            newImage = document.createElement('img');
+            
+            
+            divBorder.classList = "bookborder"; // add class to div
             card.classList = "card";
             card.id = "card";
-            
-            divBorder.appendChild(card);
-            divDelete = document.createElement('div');
             divDelete.classList = "btn-divdelete";
-            card.appendChild(divDelete);
-            
-            btnDelete = document.createElement('button');
             btnDelete.classList = "btn-delete";
-            divDelete.appendChild(btnDelete);
-            btnDelete.innerText = "x";
-        
-            header = document.createElement('h3');
             header.classList = "title";
-            card.appendChild(header);
-            header.innerText = `${Book.title}`;
-            
-            newAuthor = document.createElement('p');
             newAuthor.classList = "author";
-            card.appendChild(newAuthor);
-            newAuthor.innerText = `Author: ${Book.author}`;
-            
-            totalPages = document.createElement('p');
             totalPages.classList = "pages";
-            card.appendChild(totalPages);
-            totalPages.innerText = `Pages: ${Book.pages}`;
-
-            newHasRead = document.createElement('p');
             newHasRead.classList = "hasRead";
-            card.appendChild(newHasRead);
-            newHasRead.innerText = `Finished: ${Book.hasRead}`;
-            
-            newImage = document.createElement('img');
             newImage.classList = "img-card";
-            newImage.src = "https://www.nicepng.com/png/full/69-693155_books-open-book-clip-art-clipartix-open-book.png"
+
+            container.appendChild(divBorder); // append div to already existing container div in HTML document.
+            divBorder.appendChild(card);
+            card.appendChild(divDelete);
+            divDelete.appendChild(btnDelete);
+            card.appendChild(header);
+            card.appendChild(newAuthor);
+            card.appendChild(totalPages);
+            card.appendChild(newHasRead);
             card.appendChild(newImage);
+
+            
+            btnDelete.innerText = "x"; // Display innerText on cards
+            header.innerText = `${Book.title}`;
+            newAuthor.innerText = `Author: ${Book.author}`;
+            totalPages.innerText = `Pages: ${Book.pages}`;
+            newHasRead.innerText = `Finished: ${Book.hasRead}`;
+            newImage.src = "https://www.nicepng.com/png/full/69-693155_books-open-book-clip-art-clipartix-open-book.png"
+            
             
             card.addEventListener('click', (e) => {
                 deleteBookCard(e.target);
