@@ -43,8 +43,7 @@ function addBookToLibrary() {
     const book = new Book(document.getElementById('title').value,
     document.getElementById('author').value,
     document.getElementById('pages').value,
-    document.getElementById('hasReadYes').value,
-    document.getElementById('hasReadNo').value);
+    document.getElementById('hasRead').checked)
     myLibrary.push(book); // Push book to array
     localStorage.setItem('myLibrary', JSON.stringify(myLibrary)); // storing locally in browser, converting to JSON format
     addBookToPage(); // calling add book to Page function
