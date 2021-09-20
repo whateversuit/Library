@@ -74,6 +74,7 @@ function addBookToPage(){
             newAuthor.classList = "author";
             totalPages.classList = "pages";
             newHasRead.classList = "hasRead";
+            newHasRead.id ="hasRead";
             newImage.classList = "img-card";
 
             container.appendChild(divBorder); // append div to already existing container div in HTML document.
@@ -97,10 +98,15 @@ function addBookToPage(){
             
             card.addEventListener('click', (e) => {
                 deleteBookCard(e.target);
-                deleteBookStorage(`${Book.title}`);
                 })
-                
-             
+
+            btnDelete.addEventListener('click', () => {
+                deleteBookStorage(`${Book.title}`);
+            })
+
+            newHasRead.addEventListener('click', () => {
+                toggleRead(`${Book.hasRead}`);
+            })
         })
     }
         
@@ -108,7 +114,8 @@ function addBookToPage(){
   // deleting a book from DOM
 function deleteBookCard(book) {
     if(book.classList.contains('btn-delete')){
-        book.parentElement.parentElement.parentElement.remove(); 
+        book.parentElement.parentElement.parentElement.remove();
+        
     } 
 }
 // delete book from localstorage array
@@ -116,8 +123,14 @@ function deleteBookStorage(book){
     myLibrary.forEach((Book, index) => {
     if(`${Book.title}` === book) {
         myLibrary.splice(index, 1);
+    
     }
-    })
+
     localStorage.setItem("myLibrary", JSON.stringify(myLibrary))   
+    }
+    ) 
 }
 
+function toggleRead(book){
+    console.log(book)
+}
