@@ -54,15 +54,15 @@ function addBookToPage(){
     if (localStorage.getItem('myLibrary') != null){
         myLibrary.forEach(Book => { // Loops through each Book object inside myLibrary
         
-            divBorder = document.createElement('div'); // create a div
-            card = document.createElement('div');
-            divDelete = document.createElement('div');
-            btnDelete = document.createElement('button');
-            header = document.createElement('h3');
-            newAuthor = document.createElement('p');
-            totalPages = document.createElement('p');
-            newHasRead = document.createElement('p');
-            newImage = document.createElement('img');
+            const divBorder = document.createElement('div'); // create a div
+            const card = document.createElement('div');
+            const divDelete = document.createElement('div');
+            const btnDelete = document.createElement('button');
+            const header = document.createElement('h3');
+            const newAuthor = document.createElement('p');
+            const totalPages = document.createElement('p');
+            const newHasRead = document.createElement('p');
+            const newImage = document.createElement('img');
             
             
             divBorder.classList = "bookborder"; // add class to div
@@ -95,7 +95,13 @@ function addBookToPage(){
             newHasRead.innerText = `Finished: ${Book.hasRead}`;
             newImage.src = "https://www.nicepng.com/png/full/69-693155_books-open-book-clip-art-clipartix-open-book.png"
             
-            
+           if(Book.hasRead) {
+               newHasRead.textContent = "Finished: Yes"
+           } else {
+               newHasRead.classList = "hasReadNo"
+               newHasRead.textContent = "Finished: No"
+           }
+
             card.addEventListener('click', (e) => {
                 deleteBookCard(e.target);
                 })

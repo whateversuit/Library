@@ -109,6 +109,13 @@ h3 {
   transform: scale(1.005);
 }
 
+.hasRead {
+  color: green;
+}
+.hasReadNo {
+  color: red;
+}
+
 /* one column layout (vertical) on small screens */
 @media screen and (max-width: 600px) {
   .container {
