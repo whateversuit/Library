@@ -20,6 +20,13 @@ h3 {
   font-family: "Libre Baskerville", serif;
 }
 
+h2 {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
 .heading {
   display: flex;
   justify-content: center;
@@ -31,8 +38,21 @@ h3 {
 .headertext {
   margin-bottom: 40px;
 }
-
-.btn-newBook {
+.closeBtn {
+  border: none;
+  background: none;
+  font-size: 16px;
+}
+.closeBtn:hover {
+  text-shadow: 1px 0px 10px;
+  color: red;
+}
+.divBtn {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.btn-newBook,
+#submit {
   font-family: "Libre Baskerville", serif;
   color: rgba(0, 0, 0, 0.7);
   margin-bottom: 20px;
@@ -114,6 +134,18 @@ h3 {
 }
 .hasReadNo {
   color: red;
+}
+ul,
+li {
+  display: flex;
+  list-style-type: none;
+  margin-bottom: 20px;
+  align-items: center;
+  flex-direction: column;
+  padding: 0;
+}
+label {
+  margin-bottom: 10px;
 }
 
 /* one column layout (vertical) on small screens */

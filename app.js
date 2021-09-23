@@ -1,12 +1,11 @@
 // TODO:
-// 1. add a button on each books display to change its read status - function that toggles a funktion on books read status on Book prototype
-// 2. Fix styling on modal container
 // 3. Add a button on modal container to hide (instead of only submit)
 // 4. fix books stacking when displayed from array
 
 const btn_newBook = document.getElementById('btn_newBook')
 const modal_container = document.getElementById('modal_container')
 const submit = document.getElementById('submit')
+const btn_closeModal = document.getElementById('closeBtn')
 
 btn_newBook.addEventListener('click', () => {
     modal_container.classList.add('show');  // show modal when clicking on new book.
@@ -16,6 +15,12 @@ submit.addEventListener('click', (e) => {
     
     e.preventDefault();     // prevent submit form from submitting
     addBookToLibrary();     // add Book function, adding to object into the array
+    modal_container.classList.remove('show'); // removes modal from showing
+    
+})
+btn_closeModal.addEventListener('click', (e) => {
+    
+    e.preventDefault();     // prevent submit form from submitting
     modal_container.classList.remove('show'); // removes modal from showing
     
 })
