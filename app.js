@@ -132,5 +132,16 @@ function deleteBookStorage(book){
 }
 
 function toggleRead(book){
-    console.log(book)
-}
+    if  ( book === 'true'){
+       
+        console.log('sant')
+        console.log(book)
+
+        
+    } else if (book !== 'true'){
+         console.log('falskt')
+         console.log(book)
+
+         
+    }
+    }
