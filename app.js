@@ -92,14 +92,13 @@ function addBookToPage(){
             header.innerText = `${Book.title}`;
             newAuthor.innerText = `Author: ${Book.author}`;
             totalPages.innerText = `Pages: ${Book.pages}`;
-            newHasRead.innerText = `Finished: ${Book.hasRead}`;
             newImage.src = "https://www.nicepng.com/png/full/69-693155_books-open-book-clip-art-clipartix-open-book.png"
             
            if(Book.hasRead) {
-               newHasRead.textContent = "Finished: Yes"
+               newHasRead.innerText = "Finished: Yes"
            } else {
                newHasRead.classList = "hasReadNo"
-               newHasRead.textContent = "Finished: No"
+               newHasRead.innerText = "Finished: No"
            }
 
             card.addEventListener('click', (e) => {
@@ -110,11 +109,12 @@ function addBookToPage(){
                 deleteBookStorage(`${Book.title}`);
             })
 
-            newHasRead.addEventListener('click', () => {
-                toggleRead(`${Book.hasRead}`);
+            newHasRead.addEventListener('click', (e) => {
+                toggleRead(e.target);
             })
         })
     }
+     
         
 }
   // deleting a book from DOM
@@ -138,16 +138,11 @@ function deleteBookStorage(book){
 }
 
 function toggleRead(book){
-    if  ( book === 'true'){
-       
-        console.log('sant')
-        console.log(book)
-
-        
-    } else if (book !== 'true'){
-         console.log('falskt')
-         console.log(book)
-
-         
-    }
-    }
+     if  (book.classList.contains('hasRead')){
+        book.classList = "hasReadNo"
+        book.innerText = "Finished: No"
+     } else if (book.classList.contains('hasReadNo')){
+          book.classList = "hasRead"
+          book.innerText = "Finished: Yes"
+     }
+     }
