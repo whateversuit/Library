@@ -1,5 +1,5 @@
 // TODO:
-// 3. Add a button on modal container to hide (instead of only submit)
+
 // 4. fix books stacking when displayed from array
 
 const btn_newBook = document.getElementById('btn_newBook')
@@ -15,6 +15,7 @@ submit.addEventListener('click', (e) => {
     
     e.preventDefault();     // prevent submit form from submitting
     addBookToLibrary();     // add Book function, adding to object into the array
+    window.location.reload() // reloads browser when submitting. Quick fix for stacking books, solve later maybe.
     modal_container.classList.remove('show'); // removes modal from showing
     
 })
@@ -56,7 +57,9 @@ function addBookToLibrary() {
 // This functions loops through the local storage array myLibrary and displays it in cards
 function addBookToPage(){
     
+    
     if (localStorage.getItem('myLibrary') != null){
+        
         myLibrary.forEach(Book => { // Loops through each Book object inside myLibrary
         
             const divBorder = document.createElement('div'); // create a div
