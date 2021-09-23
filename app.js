@@ -94,6 +94,8 @@ function addBookToPage(){
             totalPages.innerText = `Pages: ${Book.pages}`;
             newImage.src = "https://www.nicepng.com/png/full/69-693155_books-open-book-clip-art-clipartix-open-book.png"
             
+            
+
            if(Book.hasRead) {
                newHasRead.innerText = "Finished: Yes"
            } else {
@@ -111,6 +113,9 @@ function addBookToPage(){
 
             newHasRead.addEventListener('click', (e) => {
                 toggleRead(e.target);
+            })
+            newHasRead.addEventListener('click', () => {
+                hasReadUpdate(`${Book.title}`);
             })
         })
     }
@@ -145,4 +150,21 @@ function toggleRead(book){
           book.classList = "hasRead"
           book.innerText = "Finished: Yes"
      }
+
      }
+     function hasReadUpdate(book){
+        myLibrary.forEach((Book, index) => {
+        if(`${Book.title}` === book) {
+        
+            if (myLibrary[index].hasRead === false){
+                myLibrary[index].hasRead = true
+            } else if (myLibrary[index].hasRead === true) {
+            myLibrary[index].hasRead = false
+        } 
+        
+         }
+        
+        localStorage.setItem("myLibrary", JSON.stringify(myLibrary))   
+        }
+        
+        )}
